@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: bnafront
+   namespace: default
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: bnafront
+   template:
+      metadata:
+         labels:
+            app: bnafront
+      spec:
+         containers:
+            - name: frontend
+              image: mohamedhouidi/bnafront
+              ports:
+              - containerPort: 80
